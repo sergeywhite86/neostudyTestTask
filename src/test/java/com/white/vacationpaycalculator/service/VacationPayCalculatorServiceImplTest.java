@@ -10,12 +10,14 @@ import java.time.LocalDate;
 import static org.junit.jupiter.api.Assertions.*;
 
 class VacationPayCalculatorServiceImplTest {
+
  private VacationPayCalculatorService service;
 
  @BeforeEach
  public void init(){
      HolidaysRepo holidaysRepo = new HolidaysRepo();
      service = new VacationPayCalculatorService(holidaysRepo);
+     service.setAvgDaysInMonth("29.4");
  }
 
     @Test

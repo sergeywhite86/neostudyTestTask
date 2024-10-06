@@ -1,0 +1,6 @@
+spring:
+  mvc:
+    format:
+      date: dd.MM.yyyy
+
+average-days-in-month: 29.4
