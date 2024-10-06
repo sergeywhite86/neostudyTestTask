@@ -4,19 +4,18 @@ package com.white.vacationpaycalculator.repository;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Repository
 public class HolidaysRepo {
 
-    private final List<LocalDate> holidays;
+    private final Set<LocalDate> holidays;
 
     public int countPayDay(LocalDate date, int countDays) {
         int countPayDay = 0;
         for (int i = 0; i < countDays; i++) {
-            if (!date.getDayOfWeek().name().equals("SUNDAY")
-                    && !date.getDayOfWeek().name().equals("SATURDAY") && !holidays.contains(date)) {
+            if (!holidays.contains(date)) {
                 countPayDay++;
             }
             date = date.plusDays(1);
@@ -25,7 +24,7 @@ public class HolidaysRepo {
     }
 
     public HolidaysRepo() {
-        holidays = new ArrayList<>();
+        holidays = new HashSet<>();
         holidays.add(LocalDate.of(2024, 1, 1));
         holidays.add(LocalDate.of(2024, 1, 2));
         holidays.add(LocalDate.of(2024, 1, 3));
