@@ -7,6 +7,9 @@ import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Данный репозиторий хранит только выходные дни 2024 года
+ */
 @Repository
 public class HolidaysRepo {
 

@@ -1,6 +1,7 @@
 package com.white.vacationpaycalculator.controller;
 
 import com.white.vacationpaycalculator.service.VacationPayCalculatorService;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,6 +16,8 @@ public class VacationPayCalculatorController {
 
     private final VacationPayCalculatorService service;
 
+    @Operation(summary = "Рассчитать отпускные",
+            description = "Расчет отпускных")
     @GetMapping("/calculate")
     public BigDecimal calculate(@RequestParam BigDecimal avgSalary,
                                 @RequestParam int countDays,
